@@ -1,17 +1,26 @@
+import { useState } from "react";
+
 import { ThemeProvider } from "@/components/theme-provider";
-// import { ModeToggle } from "@/components/mode-toggle";
 import Routing from "./routing";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
+import AuthenticationPage from "./views/AuthenticationPage";
 
 function App() {
+  const [auth] = useState<boolean>(!false);
+
+  // <ModeToggle />
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      {/* <ModeToggle /> */}
-      <BrowserRouter>
-        {/* <Routing /> */}
-        <Navbar />
-      </BrowserRouter>
+      {auth ? (
+        <BrowserRouter>
+          <Navbar>
+            <Routing />
+          </Navbar>
+        </BrowserRouter>
+      ) : (
+        <AuthenticationPage />
+      )}
     </ThemeProvider>
   );
 }
