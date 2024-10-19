@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Loader } from "lucide-react";
 import { z } from "zod";
 
@@ -13,7 +13,11 @@ import { useCreditoForm, useIngresosDedudorForm, usePersonalDataForm } from "@/h
 import { formsSimulatorPersonalDataSchema, formsSimulatorCreditoSchema, formsSimulatorIngresosDedudorSchema } from "@/schemas/formSimulator.schemas";
 import "./styles.css";
 
-export default function Stepper() {
+interface StepperProps {
+  setresultSimulator: Dispatch<SetStateAction<boolean>>;
+}
+
+const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
   const dipatch = useAppDispatch();
 
   const formPersonalData = usePersonalDataForm();
@@ -49,7 +53,8 @@ export default function Stepper() {
           ...values,
         })
       );
-      // TODO: deploy report
+      setresultSimulator(true);
+      setLoad(false);
       return;
     }
   };
@@ -463,4 +468,6 @@ export default function Stepper() {
       )}
     </div>
   );
-}
+};
+
+export default Stepper;

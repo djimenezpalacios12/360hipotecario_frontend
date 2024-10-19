@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 import { useAppDispatch } from "@/store/hooks";
 import { setUfStore } from "@/store/ducks/simulator";
 import Stepper from "@/components/stepper";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@radix-ui/react-separator";
 
 const Simulator = () => {
+  const today = moment().format("YYYY-MM-DD");
   const dispatch = useAppDispatch();
 
   const [UF, setUF] = useState<number | undefined>(0);
+  const [resultSimulator, setresultSimulator] = useState<boolean>(false);
 
   useEffect(() => {
     const urlUF = "https://mindicador.cl/api/uf";
@@ -32,20 +36,79 @@ const Simulator = () => {
   });
 
   return (
-    <Card x-chunk="dashboard-07-chunk-1">
-      <CardHeader className="flex justify-between">
-        <CardTitle>Bienvenido al simulador de crédito hipotecario de 360 Gestión</CardTitle>
-        <CardDescription>
-          Fecha: 17-10-2024 | Valor UF: $
-          {UF?.toLocaleString("es-CL", {
-            minimumFractionDigits: 2,
-          })}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Stepper />
-      </CardContent>
-    </Card>
+    <>
+      {resultSimulator ? (
+        <div className="grid gap-4 grid-cols-1">
+          <Card x-chunk="dashboard-07-chunk-1">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Resultado simulación y predicción de tu crédito hipotecario en 360 Gestión</CardTitle>
+              <CardDescription>
+                Fecha: {today} | Valor UF: $
+                {UF?.toLocaleString("es-CL", {
+                  minimumFractionDigits: 2,
+                })}
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card x-chunk="dashboard-07-chunk-1">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Datos Personales</CardTitle>
+              <CardDescription>
+                <Separator className="my-4 p-[1px] bg-neutral-600 " />
+              </CardDescription>
+              <CardContent>tabla</CardContent>
+            </CardHeader>
+          </Card>
+
+          <Card x-chunk="dashboard-07-chunk-1">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Datos del Crédito</CardTitle>
+              <CardDescription>
+                <Separator className="my-4 p-[1px] bg-neutral-600 " />
+              </CardDescription>
+
+              <CardContent>tabla</CardContent>
+            </CardHeader>
+          </Card>
+
+          <Card x-chunk="dashboard-07-chunk-1">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Cálculo del Dividendo</CardTitle>
+              <CardDescription>
+                <Separator className="my-4 p-[1px] bg-neutral-600 " />
+              </CardDescription>
+              <CardContent>tabla</CardContent>
+            </CardHeader>
+          </Card>
+
+          <Card x-chunk="dashboard-07-chunk-1">
+            <CardHeader className="flex justify-between">
+              <CardTitle>Probabilidad de Aprobación</CardTitle>
+              <CardDescription>
+                <Separator className="my-4 p-[1px] bg-neutral-600 " />
+              </CardDescription>
+              <CardContent></CardContent>
+            </CardHeader>
+          </Card>
+        </div>
+      ) : (
+        <Card x-chunk="dashboard-07-chunk-1">
+          <CardHeader className="flex justify-between">
+            <CardTitle>Bienvenido al simulador de crédito hipotecario de 360 Gestión</CardTitle>
+            <CardDescription>
+              Fecha: {today} | Valor UF: $
+              {UF?.toLocaleString("es-CL", {
+                minimumFractionDigits: 2,
+              })}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Stepper setresultSimulator={setresultSimulator} />
+          </CardContent>
+        </Card>
+      )}
+    </>
   );
 };
 
