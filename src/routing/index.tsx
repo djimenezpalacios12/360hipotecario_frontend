@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import AuthenticationPage from "@/views/AuthenticationPage";
 import Simulator from "@/views/simulator";
+import Navbar from "@/components/navbar/navbar";
 
 // Routing
 const Routing = () => {
@@ -21,7 +22,9 @@ const Routing = () => {
           path="/simulator"
           element={
             <>
-              <Simulator />
+              <Navbar>
+                <Simulator />
+              </Navbar>
             </>
           }
         />
