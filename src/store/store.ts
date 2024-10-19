@@ -3,6 +3,7 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 
 import storage from "redux-persist/lib/storage";
 import appReducer from "./ducks/app";
+import simulatorReducer from "./ducks/simulator";
 
 const persistConfig = {
   key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const userReducer = combineReducers({
   app: appReducer,
+  simulator: simulatorReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, userReducer);

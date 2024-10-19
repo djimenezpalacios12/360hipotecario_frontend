@@ -1,4 +1,5 @@
-import { Home, LineChart, Package, Package2, PanelLeft, ShoppingCart, Users2, User } from "lucide-react";
+import { Package2, PanelLeft, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,13 +12,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { NavbarProps } from "@/interfaces/navbar.interfaces";
+import { NavbarProps, Options } from "@/interfaces/navbar.interfaces";
 import { ModeToggle } from "../mode-toggle";
-
-export const description =
-  "A product edit page. The product edit page has a form to edit the product details, stock, product category, product status, and product images. The product edit page has a sidebar navigation and a main content area. The main content area has a form to edit the product details, stock, product category, product status, and product images. The sidebar navigation has links to product details, stock, product category, product status, and product images.";
+import { options } from "./menu";
 
 const Navbar: React.FC<NavbarProps> = ({ children }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       {/* Left Nav */}
@@ -28,61 +29,28 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
             <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
-            <span className="sr-only">Acme Inc</span>
+            <span className="sr-only">360 Hipotecario</span>
           </a>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8 hover:bg-accent"
-                >
-                  <Home className="h-5 w-5" />
-                  <span className="sr-only">Dashboard</span>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="right">Dashboard</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a href="#" className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8">
-                  <ShoppingCart className="h-5 w-5" />
-                  <span className="sr-only">Orders</span>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="right">Orders</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Package className="h-5 w-5" />
-                  <span className="sr-only">Products</span>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="right">Products</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Users2 className="h-5 w-5" />
-                  <span className="sr-only">Customers</span>
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="right">Customers</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          {options.map((option: Options, index: number) => {
+            return (
+              <div key={index}>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        onClick={() => navigate(option.url)}
+                        className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:text-foreground md:h-8 md:w-8 hover:bg-accent"
+                      >
+                        {option.icon}
+                        <span className="sr-only">{option.title}</span>
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">{option.title}</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              </div>
+            );
+          })}
         </nav>
         <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
           <ModeToggle />
@@ -106,28 +74,20 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
                   className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
                   <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
-                  <span className="sr-only">Acme Inc</span>
+                  <span className="sr-only">360 Hipotecario</span>
                 </a>
-                <a href="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
-                  <Home className="h-5 w-5" />
-                  Dashboard
-                </a>
-                <a href="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
-                  <ShoppingCart className="h-5 w-5" />
-                  Orders
-                </a>
-                <a href="#" className="flex items-center gap-4 px-2.5 text-foreground">
-                  <Package className="h-5 w-5" />
-                  Products
-                </a>
-                <a href="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
-                  <Users2 className="h-5 w-5" />
-                  Customers
-                </a>
-                <a href="#" className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground">
-                  <LineChart className="h-5 w-5" />
-                  Settings
-                </a>
+                {options.map((option: Options, index: number) => {
+                  return (
+                    <a
+                      key={index}
+                      onClick={() => navigate(option.url)}
+                      className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
+                    >
+                      {option.icon}
+                      {option.title}
+                    </a>
+                  );
+                })}
               </nav>
             </SheetContent>
           </Sheet>

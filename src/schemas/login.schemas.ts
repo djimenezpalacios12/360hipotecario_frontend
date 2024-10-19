@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const regexEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+import { regexEmail } from "@/lib/regex";
 
 // 1. Create schema
 export const formSchema = z.object({
