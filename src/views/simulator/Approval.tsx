@@ -12,10 +12,22 @@ interface ApprobalProps {
 }
 
 const Approval: React.FC<ApprobalProps> = ({ uf, montoCreditoValue, tasaMensual, plazoMeses, seguroDesgravamen, seguroIncendioSismo }) => {
-  const { rentaLiquidaDeudor, otroIngresosDeudor, pagosGastosMensualesDeudor } = useAppSelector((state) => state.simulator.simulator);
+  const {
+    rentaLiquidaDeudor,
+    rentaLiquidaCodeudor,
+    otroIngresosDeudor,
+    otroIngresosCodeudor,
+    pagosGastosMensualesDeudor,
+    pagosGastosMensualesCodeudor,
+  } = useAppSelector((state) => state.simulator.simulator);
+
+  // Rentas (dedudor + codeuor)
+  const rentaLiquida = rentaLiquidaDeudor + rentaLiquidaCodeudor;
+  const otroIngresos = otroIngresosDeudor + otroIngresosCodeudor;
+  const pagosGastosMensuales = pagosGastosMensualesDeudor + pagosGastosMensualesCodeudor;
 
   const valorUF = uf || 0;
-  const totalDisponibleDeudor = (rentaLiquidaDeudor + otroIngresosDeudor - pagosGastosMensualesDeudor) / valorUF;
+  const totalDisponibleDeudor = (rentaLiquida + otroIngresos - pagosGastosMensuales) / valorUF;
   const dividendoBase = (montoCreditoValue * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -plazoMeses));
 
   // Dividendo
@@ -34,6 +46,7 @@ const Approval: React.FC<ApprobalProps> = ({ uf, montoCreditoValue, tasaMensual,
   const dividendoMaximoAprobado = totalDisponibleDeudor * porcentajeMaximo;
   const ratioUso = (dividendoTotal / dividendoMaximoAprobado) * 100;
 
+  // Probabilidad aprobación
   let probabilidadAprobacion;
   if (ratioUso <= 30) {
     probabilidadAprobacion = "100%";
