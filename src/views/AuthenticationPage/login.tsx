@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { z } from "zod";
-import { AxiosError, AxiosResponse } from "axios";
+import { useNavigate } from "react-router-dom";
+// import { AxiosError, AxiosResponse } from "axios";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+// import { Label } from "@/components/ui/label";
 import { formSchema } from "../../schemas/login.schemas";
 import { useLoginForm } from "@/hooks/useLogin.hooks";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Eye, EyeOff, Loader } from "lucide-react";
 
 export default function Login() {
-  const [load, setLoad] = useState(false);
+  const navigation = useNavigate();
+
+  const [load] = useState(false);
   const [type, setType] = useState<React.HTMLInputTypeAttribute>("password");
 
   // 1. Create schema
@@ -51,6 +54,12 @@ export default function Login() {
     //       },
     //     });
     //   });
+    if (values.email === "admin@admin.cl" && values.contraseña === "360hipotecario") {
+      console.log("Contraseña Correcta");
+      navigation("/simulator");
+    } else {
+      return;
+    }
   }
 
   return (
