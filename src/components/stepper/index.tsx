@@ -65,20 +65,20 @@ const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
 
   return (
     <div className="w-full max-w-[90%] mx-auto p-4">
-      <div className="flex items-center justify-between mb-8">
+      <div className="block md:flex items-center justify-between mb-8">
         <div className={`step-item ${currentStep >= 0 ? "active" : ""}`}>
           <div className="step-number">1</div>
-          <div className="step-label">Datos Personales</div>
+          <div className="step-label text-nowrap">Datos Personales</div>
         </div>
-        <div className="step-connector" />
+        <div className="step-connector hidden md:flex" />
         <div className={`step-item ${currentStep >= 1 ? "active" : ""}`}>
           <div className="step-number">2</div>
-          <div className="step-label">Cálculo del Crédito</div>
+          <div className="step-label text-nowrap">Cálculo del Crédito</div>
         </div>
-        <div className="step-connector" />
+        <div className="step-connector hidden md:flex" />
         <div className={`step-item ${currentStep >= 2 ? "active" : ""}`}>
           <div className="step-number">3</div>
-          <div className="step-label">Ingresos</div>
+          <div className="step-label text-nowrap">Ingresos</div>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
                   <CardDescription>Ingrese sus datos personales y del proyecto</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="grid grid-cols-12 gap-6">
+                  <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-12 md:col-span-6">
                       <FormField
                         control={formPersonalData.control}
@@ -229,7 +229,7 @@ const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
                   <CardDescription>Datos para el Cálculo del Crédito</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="grid grid-cols-12 gap-6">
+                  <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-12 md:col-span-6">
                       <FormField
                         control={formCredit.control}
@@ -344,7 +344,7 @@ const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
                   <CardDescription>Datos de los Ingresos</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="grid grid-cols-12 gap-6">
+                  <div className="grid grid-cols-12 gap-4">
                     <div className="col-span-12 md:col-span-6">
                       <FormField
                         control={formDeudor.control}
@@ -401,7 +401,7 @@ const Stepper: React.FC<StepperProps> = ({ setresultSimulator }) => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-12 gap-6 border-2 rounded-lg p-4">
+                  <div className="grid grid-cols-12 gap-2 p-4 border-2 rounded-lg">
                     <div className="col-span-12 md:col-span-6">
                       <FormField
                         control={formDeudor.control}
