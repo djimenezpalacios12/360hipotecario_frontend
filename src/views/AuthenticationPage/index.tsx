@@ -21,7 +21,7 @@ export default function AuthenticationPage() {
           </div>
         </div>
 
-        <div className="px-10 w-full">
+        <div className="px-10 w-full bg-gradient-to-b to-neutral-900 from-neutral-950">
           <div className="mx-auto h-lvh flex w-full flex-col justify-center align-middle space-y-6">
             <Login />
           </div>
