@@ -13,7 +13,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { NavbarProps, Options } from "@/interfaces/navbar.interfaces";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle, ModeToggleMobile } from "../mode-toggle";
 import { options } from "./menu";
 
 const Navbar: React.FC<NavbarProps> = ({ children }) => {
@@ -88,10 +88,13 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
                     </a>
                   );
                 })}
+                <div className="flex items-center pl-1 text-muted-foreground hover:text-foreground border-none">
+                  <ModeToggleMobile />
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
-          <div>360 Hipotecario</div>
+          <p className="text-lg text-muted-foreground font-semibold">360 Hipotecario</p>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
@@ -99,12 +102,12 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuItem disabled={true}>Opciones</DropdownMenuItem>
+              <DropdownMenuItem disabled={true}>Soporte</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem disabled={true}>Cerrar Sesión</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
