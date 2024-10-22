@@ -1,8 +1,9 @@
 // import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Routing from "./routing";
-import { BrowserRouter } from "react-router-dom";
+import "./App.css";
 // import AuthenticationPage from "./views/AuthenticationPage";
 
 function App() {
