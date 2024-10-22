@@ -1,4 +1,4 @@
-import { Package2, PanelLeft, User } from "lucide-react";
+import { PanelLeft, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { NavbarProps, Options } from "@/interfaces/navbar.interfaces";
 import { ModeToggle, ModeToggleMobile } from "../mode-toggle";
 import { options } from "./menu";
+import lohoHipotecario from "../../assets/wallpapers/logo-360Hipotecario.png";
 
 const Navbar: React.FC<NavbarProps> = ({ children }) => {
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
             href="#"
             className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
           >
-            <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
+            {/* <Package2 className="h-4 w-4 transition-all group-hover:scale-110" /> */}
+            <img src={lohoHipotecario} className="transition-all group-hover:scale-150" />
             <span className="sr-only">360 Hipotecario</span>
           </a>
           {options.map((option: Options, index: number) => {
@@ -73,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
                   href="#"
                   className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
-                  <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
+                  <img src={lohoHipotecario} className="transition-all group-hover:scale-110" />
                   <span className="sr-only">360 Hipotecario</span>
                 </a>
                 {options.map((option: Options, index: number) => {
