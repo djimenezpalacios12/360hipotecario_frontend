@@ -74,7 +74,7 @@ const Simulator = () => {
 
   return (
     <>
-      {!resultSimulator ? (
+      {resultSimulator ? (
         <>
           <div className="flex justify-center md:justify-end gap-2 px-1 md:px-20">
             <TooltipProvider>
