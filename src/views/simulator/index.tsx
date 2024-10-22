@@ -151,15 +151,26 @@ const Simulator = () => {
         </>
       ) : (
         <Card x-chunk="dashboard-07-chunk-1">
-          <CardHeader className="flex justify-between">
-            <CardTitle>Bienvenido al simulador de crédito hipotecario de 360 Gestión</CardTitle>
-            <CardDescription>
-              Fecha: {today} | Valor UF: $
-              {UF?.toLocaleString("es-CL", {
-                minimumFractionDigits: 2,
-              })}
+          <CardHeader>
+            <CardTitle className="text-center md:text-left">Resultado simulación y predicción de tu crédito hipotecario en 360 Gestión</CardTitle>
+            <CardDescription className="text-center md:text-left flex justify-center md:justify-between items-center">
+              <div className="block md:flex h-5 items-center space-x-4 text-sm">
+                <p className="text-md text-muted-foreground">
+                  Fecha: <span className="font-semibold">{today}</span>
+                </p>
+                <Separator orientation="vertical" className="hidden md:flex" />
+                <p className="text-md text-muted-foreground">
+                  Valor UF: $
+                  <span className="font-semibold">
+                    {UF?.toLocaleString("es-CL", {
+                      minimumFractionDigits: 2,
+                    })}
+                  </span>
+                </p>
+              </div>
             </CardDescription>
           </CardHeader>
+
           <CardContent>
             <Stepper setresultSimulator={setresultSimulator} />
           </CardContent>
