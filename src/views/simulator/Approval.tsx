@@ -67,24 +67,24 @@ const Approval: React.FC<ApprobalProps> = ({ uf, montoCreditoValue, tasaMensual,
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell className="text-left">Total disponible para evaluar</TableCell>
-            <TableCell className="text-right font-medium">{totalDisponibleDeudor.toFixed(2)} UF</TableCell>
+            <TableCell className="text-left text-lg">Total disponible para evaluar</TableCell>
+            <TableCell className="text-right text-lg font-medium">{totalDisponibleDeudor.toFixed(2)} UF</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left">Porcentaje máximo de uso dividendo</TableCell>
-            <TableCell className="text-right font-medium">{porcentajeMaximo * 100} %</TableCell>
+            <TableCell className="text-left text-lg">Porcentaje máximo de uso dividendo</TableCell>
+            <TableCell className="text-right text-lg font-medium">{porcentajeMaximo * 100} %</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left">Dividendo máximo aprobado</TableCell>
-            <TableCell className="text-right font-medium">{dividendoMaximoAprobado.toFixed(2)} UF</TableCell>
+            <TableCell className="text-left text-lg">Dividendo máximo aprobado</TableCell>
+            <TableCell className="text-right text-lg font-medium">{dividendoMaximoAprobado.toFixed(2)} UF</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left">Ratio de uso</TableCell>
-            <TableCell className="text-right font-medium">{ratioUso.toFixed(2)} %</TableCell>
+            <TableCell className="text-left text-lg">Ratio de uso</TableCell>
+            <TableCell className="text-right text-lg font-medium">{ratioUso.toFixed(2)} %</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left">Probabilidad de aprobación</TableCell>
-            <TableCell className="text-right font-medium">{probabilidadAprobacion}</TableCell>
+            <TableCell className="text-left text-lg">Probabilidad de aprobación</TableCell>
+            <TableCell className="text-right text-lg font-medium">{probabilidadAprobacion}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
