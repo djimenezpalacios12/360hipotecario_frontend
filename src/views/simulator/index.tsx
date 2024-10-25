@@ -72,14 +72,14 @@ const Simulator = () => {
       const imgWidth = 210; // Ancho del A4 en mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.addImage(imgData, "PNG", 0, 10, imgWidth, imgHeight);
       pdf.save("simulation.pdf"); // Guardar PDF
     }
   };
 
   return (
     <>
-      {resultSimulator ? (
+      {!resultSimulator ? (
         <>
           <div className="flex justify-center md:justify-end gap-2 px-1 md:px-20">
             <TooltipProvider>
@@ -105,7 +105,7 @@ const Simulator = () => {
             </TooltipProvider>
           </div>
 
-          <div ref={cardRef} className="grid gap-4 grid-cols-1 px-1 md:px-20">
+          <div ref={cardRef} className="grid gap-4 grid-cols-1 px-4 md:px-20">
             <Card x-chunk="dashboard-07-chunk-1" className="overflow-hidden text-ellipsis p-2 block md:flex items-center">
               <CardHeader>
                 <CardTitle className="text-center md:text-left">Resultado simulación y predicción de tu crédito hipotecario en 360 Gestión</CardTitle>

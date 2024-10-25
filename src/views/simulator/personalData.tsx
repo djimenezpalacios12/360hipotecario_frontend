@@ -12,32 +12,32 @@ const personalData = () => {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell className="text-left font-light">Nombre del Proyecto</TableCell>
-            <TableCell className="text-right font-medium">{nombreProyecto}</TableCell>
+            <TableCell className="text-left text-lg font-light">Nombre del Proyecto</TableCell>
+            <TableCell className="text-right text-lg font-medium">{nombreProyecto}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Número de la unidad</TableCell>
-            <TableCell className="text-right font-medium">{numeroUnidad}</TableCell>
+            <TableCell className="text-left text-lg font-light">Número de la unidad</TableCell>
+            <TableCell className="text-right text-lg font-medium">{numeroUnidad}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Nombre del Cliente</TableCell>
-            <TableCell className="text-right font-medium">{nombreCliente}</TableCell>
+            <TableCell className="text-left text-lg font-light">Nombre del Cliente</TableCell>
+            <TableCell className="text-right text-lg font-medium">{nombreCliente}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">RUT del cliente</TableCell>
-            <TableCell className="text-right font-medium">{rut}</TableCell>
+            <TableCell className="text-left text-lg font-light">RUT del cliente</TableCell>
+            <TableCell className="text-right text-lg font-medium">{rut}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Teléfono del cliente</TableCell>
-            <TableCell className="text-right font-medium">{telefonoCliente}</TableCell>
+            <TableCell className="text-left text-lg font-light">Teléfono del cliente</TableCell>
+            <TableCell className="text-right text-lg font-medium">{telefonoCliente}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Email del cliente</TableCell>
-            <TableCell className="text-right font-medium">{emailCliente}</TableCell>
+            <TableCell className="text-left text-lg font-light">Email del cliente</TableCell>
+            <TableCell className="text-right text-lg font-medium">{emailCliente}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Ejecutivo comercial</TableCell>
-            <TableCell className="text-right font-medium">{ejecutivoComercial}</TableCell>
+            <TableCell className="text-left text-lg font-light">Ejecutivo comercial</TableCell>
+            <TableCell className="text-right text-lg font-medium">{ejecutivoComercial}</TableCell>
           </TableRow>
         </TableBody>
       </Table>

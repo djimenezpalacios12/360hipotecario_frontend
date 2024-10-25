@@ -25,16 +25,16 @@ const DividendCalcutation: React.FC<DividendCalcutationInterface> = ({
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell className="text-left font-light">Dividendo base</TableCell>
-            <TableCell className="text-right font-medium">{dividendoBase.toFixed(2)} UF</TableCell>
+            <TableCell className="text-left text-lg font-light">Dividendo base</TableCell>
+            <TableCell className="text-right text-lg font-medium">{dividendoBase.toFixed(2)} UF</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Total seguros</TableCell>
-            <TableCell className="text-right font-medium">{(seguroDesgravamen + seguroIncendioSismo).toFixed(2)} UF</TableCell>
+            <TableCell className="text-left text-lg font-light">Total seguros</TableCell>
+            <TableCell className="text-right text-lg font-medium">{(seguroDesgravamen + seguroIncendioSismo).toFixed(2)} UF</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-left font-light">Dividendo Total mensual</TableCell>
-            <TableCell className="text-right font-medium">{dividendoTotal.toFixed(2)} UF</TableCell>
+            <TableCell className="text-left text-lg font-light">Dividendo Total mensual</TableCell>
+            <TableCell className="text-right text-lg font-medium">{dividendoTotal.toFixed(2)} UF</TableCell>
           </TableRow>
         </TableBody>
       </Table>
